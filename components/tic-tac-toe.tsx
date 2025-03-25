@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 
 const TicTacToe = () => {
-  const [board, setBoard] = useState(Array(9).fill(null));
+  const [board, setBoard] = useState<(string | null)[]>(Array(9).fill(null));
   const [isXNext, setIsXNext] = useState(true);
 
   const handleClick = (index: number) => {
@@ -14,7 +14,7 @@ const TicTacToe = () => {
     setIsXNext(false);
   };
 
-  const calculateWinner = (squares: string[]) => {
+  const calculateWinner = (squares: (string | null)[]) => {
     const lines = [
       [0, 1, 2],
       [3, 4, 5],
@@ -25,7 +25,7 @@ const TicTacToe = () => {
       [0, 4, 8],
       [2, 4, 6],
     ];
-    for (let line of lines) {
+    for (const line of lines) {
       const [a, b, c] = line;
       if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
         return squares[a];
@@ -34,7 +34,7 @@ const TicTacToe = () => {
     return null;
   };
 
-  const minimax = (board: string[], depth: number, isMaximizing: boolean): number => {
+  const minimax = (board: (string | null)[], depth: number, isMaximizing: boolean): number => {
     const winner = calculateWinner(board);
     if (winner === 'O') return 10 - depth; // Computer wins
     if (winner === 'X') return depth - 10; // Human wins
