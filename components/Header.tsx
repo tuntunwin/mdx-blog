@@ -13,7 +13,7 @@ export default function Header() {
     setTheme(theme === "light" ? "dark" : "light");
   };
   return (
-    <header className="flex justify-between items-center py-9 px-5 md:px-0">
+    <header className="flex justify-between items-center py-6 w-full max-w-5xl mx-auto px-4 md:px-8">
       <Link href={"/"} className="flex space-x-2 items-center">
         <Image
           src={theme === "light" ? "/light-union.svg" : "/dark-union.svg"}
@@ -26,8 +26,8 @@ export default function Header() {
           Meta<span className="font-bold">Blog</span>
         </div>
       </Link>
-      <div className="flex space-x-10">
-        <nav className="space-x-10">
+      <div className="flex items-center space-x-6">
+        <nav className="hidden md:flex space-x-6">
           {links.map((l, idx) => (
             <Link href={l.herf} key={idx}>
               {l.displayName}
@@ -36,14 +36,14 @@ export default function Header() {
         </nav>
         <button
           onClick={toggleTheme}
-          className="focus:outline-none"
+          className="focus:outline-none p-1"
           aria-label="Toggle theme"
         >
           <Image
             src={theme === "light" ? "/light-toggle.svg" : "/dark-toggle.svg"}
             alt="theme toggle"
-            width={48}
-            height={28}
+            width={32}
+            height={18}
             priority
           />
         </button>
