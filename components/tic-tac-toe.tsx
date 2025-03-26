@@ -107,7 +107,7 @@ const TicTacToe = () => {
     : `Next player: ${isXNext ? 'Human (X)' : 'Computer (O)'}`;
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900">
+    <div className="flex items-center justify-center bg-gray-100 dark:bg-gray-900">
       <div className="flex flex-col items-center bg-white dark:bg-black p-4 rounded-lg shadow-lg">
         <div className="text-lg font-bold mb-4">{status}</div>
         <div className="grid grid-cols-3 gap-2">
